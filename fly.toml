@@ -16,7 +16,7 @@ primary_region = "cdg"
   ENABLE_AUTOSTOP = "TRUE"
   EULA = "TRUE"
   MEMORY = "7G"
-  WHITELIST="Uhu08,toblu96"
+  WHITELIST="Uhu08"
 
 [[mounts]]
   source = "minecraft_data"
