@@ -1,3 +1,5 @@
+[![Fly Deploy](https://github.com/toblu96/minecraft-server-fly/actions/workflows/fly.yml/badge.svg?branch=main)](https://github.com/toblu96/minecraft-server-fly/actions/workflows/fly.yml)
+
 # minecraft-server-fly
 
 Scale-to-Zero Minecraft server deployed on Fly.io
