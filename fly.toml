@@ -1,0 +1,44 @@
+# fly.toml app configuration file generated for fly-minecraft-server on 2023-07-08T18:03:50+02:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "fly-minecraft-server"
+primary_region = "cdg"
+
+[build]
+  image = "itzg/minecraft-server:latest"
+
+[env]
+  AUTOSTOP_PKILL_USE_SUDO = "TRUE"
+  AUTOSTOP_TIMEOUT_EST = "120"
+  AUTOSTOP_TIMEOUT_INIT = "120"
+  ENABLE_AUTOSTOP = "TRUE"
+  EULA = "TRUE"
+  MEMORY = "7G"
+
+[[mounts]]
+  source = "minecraft_data"
+  destination = "/data"
+
+[[services]]
+  protocol = "tcp"
+  internal_port = 25565
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+
+  [[services.ports]]
+    port = "25565"
+
+  [[services.ports]]
+    handlers = ["http"]
+    port = "80"
+
+[checks]
+  [checks.minecraft_server_tcp_check]
+    grace_period = "30s"
+    interval = "30s"
+    port = 25565
+    timeout = "20s"
+    type = "tcp"
